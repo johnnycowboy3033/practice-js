@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WelcomeComponent } from './welcome.component';
-import {AppComponent} from "../../app.component";
+import { NavbarComponent } from "../navbar/navbar.component"
 
 describe('WelcomeComponent', () => {
   let component: WelcomeComponent;
@@ -9,7 +9,10 @@ describe('WelcomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WelcomeComponent ]
+      declarations: [
+        WelcomeComponent,
+        NavbarComponent
+      ]
     })
     .compileComponents();
 
