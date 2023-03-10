@@ -42,4 +42,14 @@ describe('ArrayService', () => {
     expect(service.enumElementCount(service.getComponentName())).toEqual(31);
   });
 
+  it('should be one for the array length in the Concat Context Tables', () => {
+
+    let concatContext =  service.context.get( service.getComponentName().Concatenate);
+    expect(concatContext.Begin.Tables.length).toEqual(1);
+
+  });
+
+
+
+
 });

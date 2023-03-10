@@ -20,10 +20,22 @@ enum ComponentName {
 
 };
 
+interface  TableContext{
+  Tables:string[][];
+  DefaultNames:string[];
+  Names:string[];
+
+};
+
+interface ComponentContext {
+  Begin: TableContext;
+  End: TableContext;
+  ShouldCompare: boolean;
+};
+
 @Injectable({
   providedIn: 'root'
 })
-
 
 export class ArrayService {
 
@@ -53,10 +65,16 @@ export class ArrayService {
   context = new Map(); //Stores which table is display on the components
 
   constructor() {
-    this.tables.set(ArrayNames.OrderInteger, this.OrderInteger); //0
-    this.tables.set(ArrayNames.Fruits, this.Fruits); //1
-    this.tables.set(ArrayNames.UniqueInteger, this.UniqueInteger); //2
-    this.tables.set(ArrayNames.Peoples, this.Peoples);//3
+    this.tables.set(ArrayNames.OrderInteger, this.OrderInteger);
+    this.tables.set(ArrayNames.Fruits, this.Fruits);
+    this.tables.set(ArrayNames.UniqueInteger, this.UniqueInteger);
+    this.tables.set(ArrayNames.Peoples, this.Peoples);
+
+    this.context.set(ComponentName.Concatenate,
+      this.managerContent( {ShouldCompare: true, Begin:{ DefaultNames:[ArrayNames.Fruits] }, } ));
+
+    this.context.set(ComponentName.CopyWithin,
+      this.managerContent( { Begin:{ DefaultNames:[ArrayNames.Fruits] }, }  ));
   }
 
   private dataSourceActiveComponent  =  new BehaviorSubject<string>(this.activeComponent);
@@ -93,6 +111,36 @@ export class ArrayService {
     return count
   }
 
+  managerContent(data: { ShouldCompare?: boolean; Begin:{DefaultNames:string[]} } ) {
 
+    //If the value is assign do nothing. If is undefined, null, or never make the value false.
+    if(typeof data.ShouldCompare != 'boolean'){data.ShouldCompare = false;}
+
+    //Populating the initial state of the array BEFORE the JavaScript Operation is preformed.
+    let componentTables = new Array();
+    if(data.Begin.DefaultNames.length > 0){
+
+      data.Begin.DefaultNames.forEach( (value,index,array) =>{
+        componentTables.push( this.tables.get(value) );
+      });
+
+    }else{
+      //TODO: Throw error if array is empty.
+    }
+
+    return {
+      Begin: {
+        Tables:[componentTables],
+        DefaultNames: data.Begin?.DefaultNames,
+        Names:[],
+      },
+      End:{
+        Tables:[[]],
+        DefaultNames:[],
+        Names:[],
+      },
+      ShouldCompare: data.ShouldCompare,
+    };
+  };
 
 }
