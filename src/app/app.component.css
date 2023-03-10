@@ -4,3 +4,14 @@ span {
   margin-top: 10px;
   margin-left: 50px;
 }
+
+p {
+  text-align: center;
+  font-family: 'Monaco';
+  color: whitesmoke;
+  padding: 20px;
+}
+
+.banner{
+  background-color:purple;
+}
