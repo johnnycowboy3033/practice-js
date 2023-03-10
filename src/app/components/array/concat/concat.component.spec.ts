@@ -20,4 +20,8 @@ describe('ConcatComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should be the title is Concatenate', () => {
+    expect( component.title).toEqual('Concatenate');
+  });
 });

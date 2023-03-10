@@ -34,4 +34,12 @@ describe('ArrayService', () => {
     expect(service.tables.size).toEqual(4);
   });
 
+  it('should be four the size of the Array Names Enumerator', () => {
+    expect(service.enumElementCount(service.getArrayNames())).toEqual(4);
+  });
+
+  it('should be thirty-one the size of the Component Name Enumerator', () => {
+    expect(service.enumElementCount(service.getComponentName())).toEqual(31);
+  });
+
 });

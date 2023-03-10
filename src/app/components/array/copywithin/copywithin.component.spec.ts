@@ -20,4 +20,8 @@ describe('CopywithinComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should be the title is Copy Within', () => {
+    expect( component.title).toEqual('Copy Within');
+  });
 });
