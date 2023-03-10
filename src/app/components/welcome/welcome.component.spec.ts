@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WelcomeComponent } from './welcome.component';
+import {AppComponent} from "../../app.component";
 
 describe('WelcomeComponent', () => {
   let component: WelcomeComponent;
@@ -20,4 +21,10 @@ describe('WelcomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it(`should have as title 'Johnny Boy 3033'`, () => {
+    expect(component.title).toEqual('Johnny Boy 3033');
+  });
+
+
 });
