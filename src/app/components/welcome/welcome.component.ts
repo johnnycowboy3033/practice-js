@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent {
-
+   title = 'Practice JavaScript with Johnny Boy 3033';
 }
