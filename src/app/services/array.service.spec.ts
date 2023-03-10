@@ -13,4 +13,25 @@ describe('ArrayService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should be the Order Integer array should be twelve in length', () => {
+    expect(service.OrderInteger.length).toEqual(12);
+  });
+
+  it('should be the Fruit array should be seven in length', () => {
+    expect(service.Fruits.length).toEqual(7);
+  });
+
+  it('should be the Unique Integer array should be fifteen in length', () => {
+    expect(service.UniqueInteger.length).toEqual(15);
+  });
+
+  it('should be the Peoples array should be five in length', () => {
+    expect(service.Peoples.length).toEqual(5);
+  });
+
+  it('should be the Tables Map will be of size four', () => {
+    expect(service.tables.size).toEqual(4);
+  });
+
 });
