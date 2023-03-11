@@ -1,1 +1,90 @@
-<p>initialise works!</p>
+<div class="work-area">
+
+  <h2 id="list-elements">Array Elements</h2>
+
+  <div>
+    <div class="container">
+      <div class="row align-items-start">
+        <div *ngFor="let elementColumn of initArray; index as j"  class="col">
+
+          <h3>{{ findIndexToNameTable(j) }}
+          </h3>
+          <table>
+            <thead>
+            <tr>
+              <th>Array Index</th>
+              <th>Element of Array</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let element of elementColumn; let i = index" class="array-elements" >
+              <td class="block-index">
+                {{ i }}
+              </td>
+              <td class="block-element">
+                {{element }}
+              </td>
+              <td class="block-action" >
+                <button type="button" class="button-element btn btn-primary" (click)="removeElement(i, findIndexToNameTable(j) )">Remove</button>
+              </td>
+
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="block-section">
+          <h2 id="add-element">Add Element</h2>
+
+          <form [formGroup]="newElementForm">
+
+            <div  class="ctrl-row --array-choose form-element">
+              <label for="choose-new" class="ctrl-label" >Choose Table</label>
+              <select name="choose-new" id="choose-new" class="ctrl" formControlName="choose">
+                <option *ngFor="let choose of tableNameForm" class="option-choose-add" [ngValue]="choose">{{choose}}</option>
+              </select>
+            </div>
+
+            <div class="ctrl-row --new-element form-element">
+              <label for="element" class="ctrl-label">New Element</label>
+              <input type="text" class="ctrl" id="element" name="element" autocomplete="off" formControlName="element">
+            </div>
+
+            <button type="button" class="button-element btn btn-primary" (click)="addElementEnd()" >Add</button>
+            <p class="addition-field-info"> Add New Array Element added at the end of the Array </p>
+
+          </form>
+        </div>
+
+        <div class="block-section">
+          <h2 id="select-array">Select Array</h2>
+
+          <form [formGroup]="arrayNamesForm" >
+
+            <div  class="ctrl-row --array-choose form-element">
+              <label for="choose-name" class="ctrl-label" >Choose Table</label>
+              <select name="choose-name" id="choose-name" class="ctrl" formControlName="choose">
+                <option *ngFor="let choose of tableNameForm" class="option-choose-select" [ngValue]="choose">{{choose}}</option>
+              </select>
+            </div>
+
+            <div  class="ctrl-row --array-names form-element">
+              <label for="array-names" class="ctrl-label" >Array List</label>
+              <select name="array-names" id="array-names" class="ctrl" formControlName="names">
+                <option *ngFor="let names of allArrayNames" class="option-names-select" [ngValue]="names" >{{names}}</option>
+              </select>
+            </div>
+
+            <button class="btn btn-primary" type="submit"  (click)="selectArray()" >Select</button>
+
+            <p class="addition-field-info">You can select many different arrays element types</p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+

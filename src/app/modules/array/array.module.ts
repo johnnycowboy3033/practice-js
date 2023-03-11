@@ -17,4 +17,18 @@ export class ArrayModule {
 
   title: string= '';
 
+  initArray: string[][] = []; //The tables in the Array Elements part of the form
+
+  findIndexToNameTable(index:number){
+
+    let nameTable = '';
+
+    return nameTable;
+
+  }
+
+  removeElement(index:number,tableName:string){
+
+  }
+
 }

@@ -1,6 +1,39 @@
+.work-area{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding:20px;
+  border: 2px solid teal;
+  border-radius: 10px;
+}
+
 h1{
   color:teal;
   padding-top:40px;
   padding-bottom:40px;
   font-family: "Tahoma";
+}
+
+h2{
+  color: #cc33ff;
+  padding-top:40px;
+  margin-left: 30px;
+  font-family: "Tamil Sangam MN";
+}
+
+p{
+  margin: 20px;
+}
+label{
+  margin-left: 20px;
+  margin-right: 5px;
+}
+
+.ctrl-row{
+  margin-bottom: 10px;
+}
+
+.addition-field-info{
+  color:darkgray;
+  font-size: 12px;
+  font-style: italic;
 }
