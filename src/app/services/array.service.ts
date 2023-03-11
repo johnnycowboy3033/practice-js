@@ -146,4 +146,49 @@ export class ArrayService {
     };
   };
 
+  /******************\
+   * METHODS         *
+  \******************/
+
+  /*
+   Description:
+   This method creates new array than takes the contains of one array copies
+   into the other array.
+   Parameter:
+   originalArray - the array where contain is copied from
+   cloneArray - the array where contain is copied into
+  */
+  clone(originalArray:string[] , cloneArray:string[]){
+    //This will remove all elements from the array and will actually clean the original array.
+    cloneArray.splice(0, cloneArray.length)
+
+    for (let r = 0; r < originalArray.length; r++) {
+      cloneArray.push(originalArray[r]);
+    }
+  }
+
+  /*
+
+  Description:
+  Remove element for the beginning, middle and end of the array
+  Parameter:
+  removalIndex - the element want to remove the originalArray array
+  originalArray - array where the element will be removed
+  */
+
+  removeElement(removalIndex:number,originalArray:string[] ){
+
+    let newArray:string[] = [];
+
+    for( let index = 0; index < originalArray.length; index++){
+      if( removalIndex != index){
+        newArray.push(originalArray[index]);
+      };
+    };
+
+    return newArray
+  };
+
+
+
 }

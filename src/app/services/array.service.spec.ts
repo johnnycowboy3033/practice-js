@@ -5,6 +5,9 @@ import { ArrayService } from './array.service';
 describe('ArrayService', () => {
   let service: ArrayService;
 
+  let oneToFive = [ '1', '2', '3', '4', '5'];
+  let sevenToTen = [ '7', '8', '9', '10'];
+
   beforeEach(() => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(ArrayService);
@@ -115,6 +118,87 @@ describe('ArrayService', () => {
 
     let concatContext =  service.context.get( service.getComponentName().CopyWithin);
     expect(concatContext.ShouldCompare).toEqual(false);
+
+  });
+
+
+  /******************\
+   * METHODS         *
+  \******************/
+
+   // clone
+
+  it('(clone) should clone element so the two array are the same', () => {
+
+    let testArray: string[] = [];
+
+    service.clone(oneToFive, testArray);
+
+    for(let index = 0 ; index < testArray.length ; index++){
+      expect( testArray[index]  ).toEqual( oneToFive[index]  );
+    }
+
+  });
+
+  // removeElement
+
+  it('(removeElement) should remove element so the length be reduce by one element', () => {
+
+    let testArray: string [] = []
+
+    service.clone(oneToFive, testArray);
+
+    let arraySize : number = testArray.length;
+
+    let newArray:string[]  = service.removeElement(0, testArray);
+
+    expect( arraySize -1 ).toEqual( newArray.length);
+
+  });
+
+
+  it('(removeElement) should remove element so the first element should be removed', () => {
+
+    let testArray: string [] = []
+
+    service.clone(oneToFive, testArray);
+
+    let newArray:string[]  = service.removeElement(0, testArray);
+
+    for(let index = 0 ; index < newArray.length ; index++){
+      expect( String(index + 2)).toEqual( newArray[index] );
+    }
+
+  });
+
+  it('(removeElement) should remove element so the middle element should be removed', () => {
+
+    let testArray: string [] = []
+
+    service.clone(oneToFive, testArray);
+
+    let newArray:string[]  = service.removeElement(2, testArray);
+
+    expect( String(1 )).toEqual( newArray[0] );
+    expect( String(2 )).toEqual( newArray[1] );
+    expect( String(4 )).toEqual( newArray[2] );
+    expect( String(5 )).toEqual( newArray[3] );
+
+  });
+
+  it('(removeElement) should not remove element so the array should be unchanged', () => {
+
+    let testArray: string [] = []
+
+    service.clone(oneToFive, testArray);
+
+    let newArray:string[]  = service.removeElement(5, testArray);
+
+    expect( String(1 )).toEqual( newArray[0] );
+    expect( String(2 )).toEqual( newArray[1] );
+    expect( String(3 )).toEqual( newArray[2] );
+    expect( String(4 )).toEqual( newArray[3] );
+    expect( String(5 )).toEqual( newArray[4] );
 
   });
 
