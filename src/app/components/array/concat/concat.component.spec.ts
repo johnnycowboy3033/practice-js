@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ConcatComponent } from './concat.component';
+import {InitialiseComponent} from "../../array-helper/initialise/initialise.component";
+
 
 describe('ConcatComponent', () => {
   let component: ConcatComponent;
@@ -8,7 +10,10 @@ describe('ConcatComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ConcatComponent ]
+      declarations: [
+        ConcatComponent,
+        InitialiseComponent
+      ]
     })
     .compileComponents();
 

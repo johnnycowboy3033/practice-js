@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CopywithinComponent } from './copywithin.component';
+import {InitialiseComponent} from "../../array-helper/initialise/initialise.component";
 
 describe('CopywithinComponent', () => {
   let component: CopywithinComponent;
@@ -8,7 +9,10 @@ describe('CopywithinComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CopywithinComponent ]
+      declarations: [
+        CopywithinComponent,
+        InitialiseComponent
+      ]
     })
     .compileComponents();
 
