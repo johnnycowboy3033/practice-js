@@ -6,7 +6,6 @@ describe('ArrayService', () => {
   let service: ArrayService;
 
   let oneToFive = [ '1', '2', '3', '4', '5'];
-  let sevenToTen = [ '7', '8', '9', '10'];
 
   beforeEach(() => {
     TestBed.configureTestingModule({});

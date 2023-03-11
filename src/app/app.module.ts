@@ -8,6 +8,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { ConcatComponent } from './components/array/concat/concat.component';
 import { CopywithinComponent } from './components/array/copywithin/copywithin.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { InitialiseComponent } from './components/array-helper/initialise/initialise.component';
 
 
 let appRoutes: Routes = [
@@ -23,6 +24,7 @@ let appRoutes: Routes = [
     ConcatComponent,
     CopywithinComponent,
     NavbarComponent,
+    InitialiseComponent,
   ],
   imports: [
     BrowserModule,
