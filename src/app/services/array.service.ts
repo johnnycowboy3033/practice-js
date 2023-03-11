@@ -40,7 +40,7 @@ interface ComponentContext {
 export class ArrayService {
 
   /***************************************************************\
-  * POPULATE TABLES
+  * TABLES
   *
   * Description:
   * The below arrays are used to populate the STORAGE.
@@ -71,10 +71,10 @@ export class ArrayService {
     this.tables.set(ArrayNames.Peoples, this.Peoples);
 
     this.context.set(ComponentName.Concatenate,
-      this.managerContent( {ShouldCompare: true, Begin:{ DefaultNames:[ArrayNames.Fruits] }, } ));
+      this.managerContent( {ShouldCompare: true, Begin:{ DefaultNames:[ArrayNames.Fruits,ArrayNames.Peoples] }, } ));
 
     this.context.set(ComponentName.CopyWithin,
-      this.managerContent( { Begin:{ DefaultNames:[ArrayNames.Fruits] }, }  ));
+      this.managerContent( { Begin:{ DefaultNames:[ArrayNames.Peoples] }, }  ));
   }
 
   private dataSourceActiveComponent  =  new BehaviorSubject<string>(this.activeComponent);
@@ -118,10 +118,13 @@ export class ArrayService {
 
     //Populating the initial state of the array BEFORE the JavaScript Operation is preformed.
     let componentTables = new Array();
+    let componentName =  new Array();
+
     if(data.Begin.DefaultNames.length > 0){
 
       data.Begin.DefaultNames.forEach( (value,index,array) =>{
         componentTables.push( this.tables.get(value) );
+        componentName.push(value);
       });
 
     }else{
@@ -130,8 +133,8 @@ export class ArrayService {
 
     return {
       Begin: {
-        Tables:[componentTables],
-        DefaultNames: data.Begin?.DefaultNames,
+        Tables:componentTables,
+        DefaultNames: componentName,
         Names:[],
       },
       End:{
