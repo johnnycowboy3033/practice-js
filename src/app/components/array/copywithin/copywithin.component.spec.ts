@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ReactiveFormsModule, FormsModule, FormGroup, FormControl} from "@angular/forms";
 
 import { CopywithinComponent } from './copywithin.component';
 import {InitialiseComponent} from "../../array-helper/initialise/initialise.component";
@@ -12,6 +13,10 @@ describe('CopywithinComponent', () => {
       declarations: [
         CopywithinComponent,
         InitialiseComponent
+      ],
+      imports: [
+        FormsModule,
+        ReactiveFormsModule
       ]
     })
     .compileComponents();
