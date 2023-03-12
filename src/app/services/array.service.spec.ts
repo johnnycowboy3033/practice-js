@@ -56,6 +56,14 @@ describe('ArrayService', () => {
     expect(service.enumElementCount(service.getComponentNames())).toEqual(31);
   });
 
+  it('(Enumerator Method) should be keys of the enum', () => {
+    expect(service.enumElements(service.getArrayNames(),true)).toEqual(['OrderInteger', 'Fruits', 'UniqueInteger', 'Peoples']);
+  });
+
+  it('(Enumerator Method) should be values of the enum', () => {
+    expect(service.enumElements(service.getArrayNames(),false)).toEqual(['Order Integer', 'Fruits', 'Unique Integer', 'Peoples']);
+  });
+
   /***********************\
    * Concatenate Context  *
   \***********************/

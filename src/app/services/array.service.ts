@@ -111,6 +111,25 @@ export class ArrayService {
     return count
   }
 
+  //This method returns array of enum keys or value based on getKeys value.
+  enumElements(enumName: any, getKeys:boolean) : string[]{
+
+    let names: string[] = [];
+
+    for (let member in enumName){
+        //console.log( "Key: " + member + " Value: "+ enumName[member]);
+
+        if(getKeys){
+          names.push( member );
+        }else{
+          names.push( enumName[member] );
+        }
+
+    };
+
+    return names;
+  };
+
   managerContent(data: { ShouldCompare?: boolean; Begin:{DefaultNames:string[]} } ) {
 
     //If the value is assign do nothing. If is undefined, null, or never make the value false.
