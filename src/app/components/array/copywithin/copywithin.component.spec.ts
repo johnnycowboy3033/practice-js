@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import {ReactiveFormsModule, FormsModule, FormGroup, FormControl} from "@angular/forms";
 
 import { CopywithinComponent } from './copywithin.component';
-import {InitialiseComponent} from "../../array-helper/initialise/initialise.component";
+import {InitializeComponent} from "../../array-helper/initialize/initialize.component";
 
 describe('CopywithinComponent', () => {
   let component: CopywithinComponent;
@@ -12,7 +12,7 @@ describe('CopywithinComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [
         CopywithinComponent,
-        InitialiseComponent
+        InitializeComponent
       ],
       imports: [
         FormsModule,

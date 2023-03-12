@@ -4,11 +4,11 @@ import {FormControl, FormGroup} from "@angular/forms";
 import { ArrayModule } from '../../../modules/array/array.module'
 
 @Component({
-  selector: 'app-initialise',
-  templateUrl: './initialise.component.html',
-  styleUrls: ['./initialise.component.css']
+  selector: 'app-initialize',
+  templateUrl: './initialize.component.html',
+  styleUrls: ['./initialize.component.css']
 })
-export class InitialiseComponent extends ArrayModule {
+export class InitializeComponent extends ArrayModule {
 
   tableNameForm: string[] = []; //The keys for table displayed in the Array Elements part of the form
   allArrayNames: string[] = []; //All keys in the arrayMap Map

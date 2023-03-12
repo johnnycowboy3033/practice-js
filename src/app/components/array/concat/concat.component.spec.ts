@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import {ReactiveFormsModule, FormsModule, FormGroup, FormControl} from "@angular/forms";
 
 import { ConcatComponent } from './concat.component';
-import {InitialiseComponent} from "../../array-helper/initialise/initialise.component";
+import {InitializeComponent} from "../../array-helper/initialize/initialize.component";
 
 
 describe('ConcatComponent', () => {
@@ -13,7 +13,7 @@ describe('ConcatComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [
         ConcatComponent,
-        InitialiseComponent
+        InitializeComponent
       ],
       imports: [
         FormsModule,
