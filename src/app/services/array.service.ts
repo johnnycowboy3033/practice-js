@@ -116,6 +116,7 @@ export class ArrayService {
 
     let names: string[] = [];
 
+    //TODO: Make decision to refactor - enumNames is array so makes sense to turn array into a array
     for (let member in enumName){
         //console.log( "Key: " + member + " Value: "+ enumName[member]);
 
