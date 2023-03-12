@@ -16,7 +16,7 @@ export class ConcatComponent extends ArrayModule implements OnInit {
   constructor(arrayService : ArrayService){
     super(arrayService);
 
-    this.title = arrayService.getComponentName().Concatenate;
+    this.title = arrayService.getComponentNames().Concatenate;
   };
 
 }

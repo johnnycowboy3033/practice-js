@@ -8,7 +8,7 @@ enum ArrayNames {
   Peoples = 'Peoples',
 };
 
-enum ComponentName {
+enum ComponentNames {
   Concatenate = 'Concatenate', CopyWithin = 'Copy Within', Entries = 'Entries',
   Every = 'Every', Fill = 'Fill', Filter = 'Filter', Find = 'Find',
   FindIndex = 'Find Index', ForEach = 'For Each', From = 'From', Includes ='Includes',
@@ -70,10 +70,10 @@ export class ArrayService {
     this.tables.set(ArrayNames.UniqueInteger, this.UniqueInteger);
     this.tables.set(ArrayNames.Peoples, this.Peoples);
 
-    this.context.set(ComponentName.Concatenate,
+    this.context.set(ComponentNames.Concatenate,
       this.managerContent( {ShouldCompare: true, Begin:{ DefaultNames:[ArrayNames.Fruits,ArrayNames.Peoples] }, } ));
 
-    this.context.set(ComponentName.CopyWithin,
+    this.context.set(ComponentNames.CopyWithin,
       this.managerContent( { Begin:{ DefaultNames:[ArrayNames.Peoples] }, }  ));
   }
 
@@ -99,8 +99,8 @@ export class ArrayService {
     return ArrayNames;
   }
 
-  getComponentName(){
-    return ComponentName;
+  getComponentNames(){
+    return ComponentNames;
   }
 
   enumElementCount(enumName: any): number {

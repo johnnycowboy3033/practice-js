@@ -12,23 +12,33 @@ import { ArrayService } from "../../services/array.service";
 
 export class ArrayModule {
 
-  constructor(public arrayService: ArrayService) {
-  }
-
-  title: string= '';
+  title: string = '';
+  allArrayNames: string[] = []; //All keys in the arrayMap Map
 
   initArray: string[][] = []; //The tables in the Array Elements part of the form
 
-  findIndexToNameTable(index:number){
+  constructor(public arrayService: ArrayService) {
 
+    this.allArrayNames = [
+      arrayService.getArrayNames().OrderInteger,
+      arrayService.getArrayNames().Fruits,
+      arrayService.getArrayNames().UniqueInteger,
+      arrayService.getArrayNames().Peoples
+    ];
+
+  };
+
+
+
+
+  findIndexToNameTable(index:number){
     let nameTable = '';
 
     return nameTable;
 
-  }
+  };
 
   removeElement(index:number,tableName:string){
-
-  }
+  };
 
 }
