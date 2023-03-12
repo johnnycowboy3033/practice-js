@@ -53,7 +53,7 @@ describe('ArrayService', () => {
   });
 
   it('(Enumerator) should be thirty-one the size of the Component Name Enumerator', () => {
-    expect(service.enumElementCount(service.getComponentName())).toEqual(31);
+    expect(service.enumElementCount(service.getComponentNames())).toEqual(31);
   });
 
   /***********************\
@@ -62,7 +62,7 @@ describe('ArrayService', () => {
 
   it('(Concatenate) should be two for the total number an arrays for Initialise Array ', () => {
 
-    let concatContext =  service.context.get( service.getComponentName().Concatenate);
+    let concatContext =  service.context.get( service.getComponentNames().Concatenate);
     expect(concatContext.Begin.Tables.length).toEqual(2);
     expect(concatContext.Begin.DefaultNames.length).toEqual(2);
 
@@ -70,7 +70,7 @@ describe('ArrayService', () => {
 
   it('(Concatenate) should be Fruits for the table name for the Initialise Array ', () => {
 
-    let concatContext =  service.context.get( service.getComponentName().Concatenate);
+    let concatContext =  service.context.get( service.getComponentNames().Concatenate);
     expect(concatContext.Begin.DefaultNames[0]).toEqual(service.getArrayNames().Fruits);
     expect(concatContext.Begin.DefaultNames[1]).toEqual(service.getArrayNames().Peoples);
 
@@ -78,7 +78,7 @@ describe('ArrayService', () => {
 
   it('(Concatenate) should be "Banana" for the first element in the Fruits Array for Initialise Array', () => {
 
-    let concatContext =  service.context.get( service.getComponentName().Concatenate);
+    let concatContext =  service.context.get( service.getComponentNames().Concatenate);
     let fruits = concatContext.Begin.Tables[0];
 
     expect(fruits[0]) .toEqual("Banana");
@@ -87,7 +87,7 @@ describe('ArrayService', () => {
 
   it('(Concatenate) should be "Cecilie" for the first element in the Peoples Array for Initialise Array', () => {
 
-    let concatContext =  service.context.get( service.getComponentName().Concatenate);
+    let concatContext =  service.context.get( service.getComponentNames().Concatenate);
     let fruits = concatContext.Begin.Tables[1];
 
     expect(fruits[0]) .toEqual("Cecilie");
@@ -96,7 +96,7 @@ describe('ArrayService', () => {
 
   it('(Concatenate) should be true for the Should Compare Variable', () => {
 
-    let concatContext =  service.context.get( service.getComponentName().Concatenate);
+    let concatContext =  service.context.get( service.getComponentNames().Concatenate);
     expect(concatContext.ShouldCompare).toEqual(true);
 
   });
@@ -107,7 +107,7 @@ describe('ArrayService', () => {
 
   it('(CopyWithin) should be two for the total number an arrays for Initialise Array ', () => {
 
-    let concatContext =  service.context.get( service.getComponentName().CopyWithin);
+    let concatContext =  service.context.get( service.getComponentNames().CopyWithin);
     expect(concatContext.Begin.Tables.length).toEqual(1);
     expect(concatContext.Begin.DefaultNames.length).toEqual(1);
 
@@ -115,7 +115,7 @@ describe('ArrayService', () => {
 
   it('(CopyWithin) should be true for the Should Compare Variable', () => {
 
-    let concatContext =  service.context.get( service.getComponentName().CopyWithin);
+    let concatContext =  service.context.get( service.getComponentNames().CopyWithin);
     expect(concatContext.ShouldCompare).toEqual(false);
 
   });
