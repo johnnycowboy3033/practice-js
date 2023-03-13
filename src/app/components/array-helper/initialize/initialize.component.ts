@@ -1,17 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit   } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 
 import { ArrayModule } from '../../../modules/array/array.module'
+import {ArrayService} from "../../../services/array.service";
 
 @Component({
   selector: 'app-initialize',
   templateUrl: './initialize.component.html',
   styleUrls: ['./initialize.component.css']
 })
-export class InitializeComponent extends ArrayModule {
+export class InitializeComponent extends ArrayModule implements OnInit  {
 
   tableNameForm: string[] = []; //The keys for table displayed in the Array Elements part of the form
 
+
+  ngOnInit(): void {
+
+  }
+
+  constructor(arrayService : ArrayService) {
+    super(arrayService);
+
+    this.title = arrayService.receiveActiveComponent();
+
+    this.initArray = this.context.get(this.title).Begin.Tables;
+
+  }
 
   //The New Element Text Box for adding new elements to arrays in the Add Element part of the form
   addElementForm = new FormGroup({
@@ -34,5 +48,7 @@ export class InitializeComponent extends ArrayModule {
   selectArray(){
 
   };
+
+
 
 }

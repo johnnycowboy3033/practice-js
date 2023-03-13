@@ -80,6 +80,9 @@ export class ArrayService {
   private dataSourceActiveComponent  =  new BehaviorSubject<string>(this.activeComponent);
   dataActiveComponent : Observable<string> = this.dataSourceActiveComponent.asObservable();
 
+  private dataSourceContext  =  new BehaviorSubject<Map<any, any>>(this.context);
+  dataContext : Observable<Map<any, any>> = this.dataSourceContext.asObservable();
+
   /***********************\
   *  Getter and Setters   *
   \***********************/
@@ -94,6 +97,19 @@ export class ArrayService {
     });
     return this.activeComponent;
   };
+
+  sendContext(dataContext: Map<any,any>) {
+    this.dataSourceContext.next(dataContext);
+  }
+
+  receiveContext(){
+    this.dataSourceContext.subscribe(response => {
+      this.context = response;
+    });
+    return this.context;
+  };
+
+  /*************************************************************************************/
 
   getArrayNames(){
     return ArrayNames;

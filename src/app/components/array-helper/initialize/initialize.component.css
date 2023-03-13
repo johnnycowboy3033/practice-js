@@ -1,0 +1,21 @@
+.button-element{
+  margin: 5px;
+}
+
+table {
+
+}
+th{
+  color: white;
+  background: darkblue;
+  padding:10px;
+}
+
+td, th {
+  border: 3px solid darkblue;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
