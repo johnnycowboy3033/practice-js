@@ -13,7 +13,6 @@ export class InitializeComponent extends ArrayModule implements OnInit  {
 
   tableNameForm: string[] = []; //The keys for table displayed in the Array Elements part of the form
 
-
   ngOnInit(): void {
 
   }
@@ -23,8 +22,6 @@ export class InitializeComponent extends ArrayModule implements OnInit  {
 
     this.title = arrayService.receiveActiveComponent();
 
-
-    this.initArray = arrayService.initArray(this.title);
 
   }
 

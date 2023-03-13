@@ -20,18 +20,16 @@ enum ComponentNames {
 
 };
 
-interface  TableContext{
-  Tables:string[][];
-  DefaultNames:string[];
-  Names:string[];
-
+enum ComponentContext {
+  shouldCompare = 'Should Compare',
+  beginTables = 'Begin Tables',
+  endTables = 'End Tables',
+  beginDefaultNames = 'Begin Default Names',
+  endDefaultNames  = 'End Default Names',
+  beginNames   = 'Begin Names',
+  endNames = 'End Names',
 };
 
-interface ComponentContext {
-  Begin: TableContext;
-  End: TableContext;
-  ShouldCompare: boolean;
-};
 
 @Injectable({
   providedIn: 'root'
@@ -63,19 +61,16 @@ export class ArrayService {
   activeComponent: string = ''; // Keeps index of componentsKeys to know active component
 
   context = new Map(); //Stores which table is display on the components
+  contextComponent = new Map(); //Stores each item on the components
 
   constructor() {
     this.tables.set(ArrayNames.OrderInteger, this.OrderInteger);
     this.tables.set(ArrayNames.Fruits, this.Fruits);
     this.tables.set(ArrayNames.UniqueInteger, this.UniqueInteger);
     this.tables.set(ArrayNames.Peoples, this.Peoples);
-
-    this.context.set(ComponentNames.Concatenate,
-      this.managerContent( {ShouldCompare: true, Begin:{ DefaultNames:[ArrayNames.Fruits,ArrayNames.Peoples] }, } ));
-
-    this.context.set(ComponentNames.CopyWithin,
-      this.managerContent( { Begin:{ DefaultNames:[ArrayNames.Peoples] }, }  ));
   }
+
+  
 
   private dataSourceActiveComponent  =  new BehaviorSubject<string>(this.activeComponent);
   dataActiveComponent : Observable<string> = this.dataSourceActiveComponent.asObservable();
@@ -115,6 +110,10 @@ export class ArrayService {
     return ArrayNames;
   }
 
+  getComponentContext(){
+    return ComponentContext ;
+  }
+
   getComponentNames(){
     return ComponentNames;
   }
@@ -126,12 +125,6 @@ export class ArrayService {
     }
     return count
   }
-
-   initArray(title:string){
-
-    return this.context.get(title)['Begin']['Tables'];
-  }
-
 
 
   //This method returns array of enum keys or value based on getKeys value.
@@ -154,40 +147,7 @@ export class ArrayService {
     return names;
   };
 
-  managerContent(data: { ShouldCompare?: boolean; Begin:{DefaultNames:string[]} } ) {
 
-    //If the value is assign do nothing. If is undefined, null, or never make the value false.
-    if(typeof data.ShouldCompare != 'boolean'){data.ShouldCompare = false;}
-
-    //Populating the initial state of the array BEFORE the JavaScript Operation is preformed.
-    let componentTables = new Array();
-    let componentName =  new Array();
-
-    if(data.Begin.DefaultNames.length > 0){
-
-      data.Begin.DefaultNames.forEach( (value,index,array) =>{
-        componentTables.push( this.tables.get(value) );
-        componentName.push(value);
-      });
-
-    }else{
-      //TODO: Throw error if array is empty.
-    }
-
-    return {
-      Begin: {
-        Tables:componentTables,
-        DefaultNames: componentName,
-        Names:[],
-      },
-      End:{
-        Tables:[[]],
-        DefaultNames:[],
-        Names:[],
-      },
-      ShouldCompare: data.ShouldCompare,
-    };
-  };
 
   /******************\
    * METHODS         *

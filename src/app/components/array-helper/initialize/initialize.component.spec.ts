@@ -5,7 +5,7 @@ import {By} from "@angular/platform-browser";
 import { InitializeComponent } from './initialize.component';
 import { ArrayService } from '../../../services/array.service'
 
-/*
+
 describe('InitialiseComponent', () => {
   let component: InitializeComponent;
   let fixture: ComponentFixture<InitializeComponent>;
@@ -30,9 +30,12 @@ describe('InitialiseComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should true', () => {
+    expect(true).toEqual(true);
   });
 
+  it('should create', () => {
+    expect(component).toBeTruthy();
+   });
+
 });
- */

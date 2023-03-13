@@ -17,7 +17,7 @@ export class CopywithinComponent extends ArrayModule implements OnInit{
     super(arrayService);
 
     this.title = arrayService.getComponentNames().CopyWithin;
-
     arrayService.sendActiveComponent(this.title);
+
   };
 }
