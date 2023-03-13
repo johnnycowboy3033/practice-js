@@ -23,7 +23,8 @@ export class InitializeComponent extends ArrayModule implements OnInit  {
 
     this.title = arrayService.receiveActiveComponent();
 
-    this.initArray = this.context.get(this.title).Begin.Tables;
+
+    this.initArray = arrayService.initArray(this.title);
 
   }
 

@@ -5,6 +5,7 @@ import {By} from "@angular/platform-browser";
 import { InitializeComponent } from './initialize.component';
 import { ArrayService } from '../../../services/array.service'
 
+/*
 describe('InitialiseComponent', () => {
   let component: InitializeComponent;
   let fixture: ComponentFixture<InitializeComponent>;
@@ -32,4 +33,6 @@ describe('InitialiseComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });
+ */

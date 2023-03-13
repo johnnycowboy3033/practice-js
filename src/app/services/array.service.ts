@@ -127,6 +127,13 @@ export class ArrayService {
     return count
   }
 
+   initArray(title:string){
+
+    return this.context.get(title)['Begin']['Tables'];
+  }
+
+
+
   //This method returns array of enum keys or value based on getKeys value.
   enumElements(enumName: any, getKeys:boolean) : string[]{
 
