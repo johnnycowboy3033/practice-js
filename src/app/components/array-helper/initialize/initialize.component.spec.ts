@@ -30,9 +30,6 @@ describe('InitialiseComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should true', () => {
-    expect(true).toEqual(true);
-  });
 
   it('should create', () => {
     expect(component).toBeTruthy();

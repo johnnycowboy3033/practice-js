@@ -22,6 +22,19 @@ export class InitializeComponent extends ArrayModule implements OnInit  {
 
     this.title = arrayService.receiveActiveComponent();
 
+    let contextMap : Map<any,any> = arrayService.receiveContext();
+    if( typeof contextMap !== 'undefined' ){
+
+      let componentMap : Map<any,any> = contextMap.get( this.title );
+      if(typeof componentMap !== 'undefined' ){
+        let table : string[][]  = componentMap.get(arrayService.getComponentContext().beginTables);
+
+        table.forEach( (value,index,array)=>{
+          this.initArray.push(value);
+        })
+      }
+
+    }
 
   }
 
