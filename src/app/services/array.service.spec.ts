@@ -68,13 +68,86 @@ describe('ArrayService', () => {
    * Concatenate Context  *
   \***********************/
 
+  it('(Concatenate) should be two for the total number an arrays for Initialise Array ', () => {
+
+    let concatContext =  service.context.get( service.getComponentNames().Concatenate);
+
+    let tables = concatContext.get( service.getComponentContext().beginTables );
+    expect( tables.length ).toEqual(2);
+
+    let tablesNames = concatContext.get( service.getComponentContext().beginDefaultNames );
+    expect( tablesNames.length ).toEqual(2);
+
+  });
+
+  it('(Concatenate) should be Fruits for the table name for the Initialise Array ', () => {
+
+    let concatContext =  service.context.get( service.getComponentNames().Concatenate);
+
+    let tables = concatContext.get( service.getComponentContext().beginDefaultNames);
+    expect(tables[0]).toEqual(service.getArrayNames().Fruits);
+    expect(tables[1]).toEqual(service.getArrayNames().Peoples);
+
+  });
+
+  it('(Concatenate) should be "Banana" for the first element in the Fruits Array for Initialise Array', () => {
+
+    let concatContext =  service.context.get( service.getComponentNames().Concatenate);
+
+    let tables = concatContext.get( service.getComponentContext().beginTables);
+    let fruits = tables[0];
+
+    expect(fruits[0]) .toEqual("Banana");
+
+  });
+
+
+  it('(Concatenate) should be "Cecilie" for the first element in the Peoples Array for Initialise Array', () => {
+
+    let concatContext =  service.context.get( service.getComponentNames().Concatenate);
+
+    let tables = concatContext.get( service.getComponentContext().beginTables);
+    let fruits = tables[1];
+
+    expect(fruits[0]) .toEqual("Cecilie");
+
+  });
+
+  it('(Concatenate) should be true for the Should Compare Variable', () => {
+
+    let concatContext =  service.context.get( service.getComponentNames().Concatenate);
+
+    let shouldCompare = concatContext.get( service.getComponentContext().shouldCompare);
+
+    expect(shouldCompare).toEqual(true);
+
+  });
 
 
   /***********************\
    * CopyWithin  Context  *
   \***********************/
 
+  it('(CopyWithin) should be two for the total number an arrays for Initialise Array ', () => {
 
+    let concatContext =  service.context.get( service.getComponentNames().CopyWithin);
+
+    let tables = concatContext.get( service.getComponentContext().beginTables);
+    expect(tables.length).toEqual(1);
+
+    let tablesNames = concatContext.get( service.getComponentContext().beginDefaultNames);
+    expect(tablesNames.length).toEqual(1);
+
+  });
+
+  it('(CopyWithin) should be true for the Should Compare Variable', () => {
+
+    let concatContext =  service.context.get( service.getComponentNames().CopyWithin);
+
+    let shouldCompare = concatContext.get( service.getComponentContext().shouldCompare);
+    expect(shouldCompare).toEqual(false);
+
+  });
 
 
   /******************\
