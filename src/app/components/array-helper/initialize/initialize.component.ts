@@ -11,8 +11,6 @@ import {ArrayService} from "../../../services/array.service";
 })
 export class InitializeComponent extends ArrayModule implements OnInit  {
 
-  tableNameForm: string[] = []; //The keys for table displayed in the Array Elements part of the form
-
   ngOnInit(): void {
 
   }
@@ -31,8 +29,16 @@ export class InitializeComponent extends ArrayModule implements OnInit  {
 
         table.forEach( (value,index,array)=>{
           this.initArray.push(value);
-        })
-      }
+        });
+
+        let tableName : string[] = componentMap.get(arrayService.getComponentContext().beginDefaultNames);
+        tableName.forEach( (value,index,array)=>{
+          this.tableNameForm.push(value);
+        });
+
+
+      };
+
 
     }
 

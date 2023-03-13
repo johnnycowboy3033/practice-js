@@ -23,6 +23,7 @@ export class ArrayModule {
   \********************************************************************/
   initArray: string[][] = [];
 
+  tableNameForm: string[] = []; //The keys for table displayed in the Array Elements part of the form
 
   /********************************************************************\
    * New  Arrays                                                       *
@@ -41,9 +42,8 @@ export class ArrayModule {
 
   findIndexToNameTable(index:number){
     let nameTable = '';
-
+    nameTable = this.tableNameForm[ index];
     return nameTable;
-
   };
 
   removeElement(index:number,tableName:string){
