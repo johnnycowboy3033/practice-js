@@ -74,7 +74,7 @@ describe('ArrayService', () => {
 
     let table = contextComponent.get(service.getComponentContext().beginTables);
 
-    // console.log("Table: " + table[0]);
+    // console.log("Begin Tables: " + table[0]);
 
     expect( table[0].length ).toEqual(7);
 
@@ -86,10 +86,92 @@ describe('ArrayService', () => {
 
     let table = contextComponent.get(service.getComponentContext().beginTables);
 
-    // console.log("Table: " + table[0]);
+    // console.log("Begin Tables: " + table[0]);
     // console.log("First Element in the array: " + table[0][0]);
 
     expect( table[0][0] ).toEqual("Banana");
+
+  });
+
+  it('(Manager Content) should be true for comparing the two tables in show table component', () => {
+
+    let contextComponent = service.managerContent( {ShouldCompare: true, Begin:{ DefaultNames:[service.getArrayNames().Fruits] }, } );
+
+    let shouldCompare = contextComponent.get(service.getComponentContext().shouldCompare);
+
+    // console.log("Should Compare: " + shouldCompare);
+
+    expect( shouldCompare ).toEqual(true);
+
+  });
+
+  it('(Manager Content) should be "Fruits" is the name first table', () => {
+
+    let contextComponent = service.managerContent( {ShouldCompare: true, Begin:{ DefaultNames:[service.getArrayNames().Fruits] }, } );
+
+    let beginDefaultNames = contextComponent.get(service.getComponentContext().beginDefaultNames);
+
+    // console.log("Begin Default Names: " + beginDefaultNames[0]);
+
+    expect( beginDefaultNames[0] ).toEqual('Fruits');
+
+  });
+  it('(Manager Content) should be zero for the length for the "endDefaultNames" ', () => {
+
+    let contextComponent = service.managerContent( {ShouldCompare: true, Begin:{ DefaultNames:[service.getArrayNames().Fruits] }, } );
+
+    let endDefaultNames = contextComponent.get(service.getComponentContext().endDefaultNames);
+
+    // console.log("End Default Names: " + endDefaultNames);
+
+    expect( endDefaultNames.length ).toEqual(0);
+
+  });
+
+  it('(Manager Content) should be zero for the length for the "endTables', () => {
+
+    let contextComponent = service.managerContent( {ShouldCompare: true, Begin:{ DefaultNames:[service.getArrayNames().Fruits] }, } );
+
+    let endTables = contextComponent.get(service.getComponentContext().endTables);
+
+    // console.log("End Tables: " + endTables);
+
+    expect( endTables.length ).toEqual(0);
+
+  });
+
+
+  it('(Manager Content) should be zero for the length for the "endDefaultNames" ', () => {
+
+    let contextComponent = service.managerContent( {ShouldCompare: true, Begin:{ DefaultNames:[service.getArrayNames().Fruits] }, } );
+
+    let endDefaultNames = contextComponent.get(service.getComponentContext().endDefaultNames);
+
+    // console.log("End Default Names: " + endDefaultNames);
+
+    expect( endDefaultNames.length ).toEqual(0);
+
+  });
+  it('(Manager Content) should be 1 for number arrays for the "beginSize" the ', () => {
+
+    let contextComponent = service.managerContent( {ShouldCompare: true, Begin:{ DefaultNames:[service.getArrayNames().Fruits] }, } );
+
+    let beginSize = contextComponent.get(service.getComponentContext().beginSize);
+
+    // console.log("Begin Size: " + beginSize);
+
+    expect( beginSize ).toEqual(1);
+
+  });
+  it('(Manager Content) should be zero for the length for the "endSize" ', () => {
+
+    let contextComponent = service.managerContent( {ShouldCompare: true, Begin:{ DefaultNames:[service.getArrayNames().Fruits] }, } );
+
+    let endSize = contextComponent.get(service.getComponentContext().endSize);
+
+    // console.log("Begin Default Names: " + endSize);
+
+    expect( endSize ).toEqual(0);
 
   });
 

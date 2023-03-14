@@ -91,12 +91,15 @@ export class ArrayService {
     let beginDefaultsName =  new Array();
     let beginNames =  new Array();
 
+    let count = 0;
+
     if(data.Begin.DefaultNames.length > 0){
 
       data.Begin.DefaultNames.forEach( (value,index,array) =>{
         beginTables.push( this.tables.get(value) );
         beginDefaultsName.push(value);
         beginNames.push("");
+        count++;
       });
 
     }else{
@@ -112,7 +115,7 @@ export class ArrayService {
     contextComponent.set(ComponentContext.beginNames, beginNames);
     contextComponent.set(ComponentContext.endNames, []);
 
-    contextComponent.set(ComponentContext.beginSize,  beginTables.length );
+    contextComponent.set(ComponentContext.beginSize,  count );
     contextComponent.set(ComponentContext.endSize,  0 );
 
     return contextComponent;
