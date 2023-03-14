@@ -64,6 +64,35 @@ describe('ArrayService', () => {
     expect(service.enumElements(service.getArrayNames(),false)).toEqual(['Order Integer', 'Fruits', 'Unique Integer', 'Peoples']);
   });
 
+   /***********************\
+   * Manager Content       *
+   \***********************/
+
+  it('(Manager Content) should be one the number elements in arrays stored in the map', () => {
+
+    let contextComponent = service.managerContent( {ShouldCompare: true, Begin:{ DefaultNames:[service.getArrayNames().Fruits] }, } );
+
+    let table = contextComponent.get(service.getComponentContext().beginTables);
+
+    // console.log("Table: " + table[0]);
+
+    expect( table[0].length ).toEqual(7);
+
+  });
+
+  it('(Manager Content) should be banana the first elements in arrays stored in the map', () => {
+
+    let contextComponent = service.managerContent( {ShouldCompare: true, Begin:{ DefaultNames:[service.getArrayNames().Fruits] }, } );
+
+    let table = contextComponent.get(service.getComponentContext().beginTables);
+
+    console.log("Table: " + table[0]);
+    console.log("First Element in the array: " + table[0][0]);
+
+    expect( table[0][0] ).toEqual("Banana");
+
+  });
+
   /***********************\
    * Concatenate Context  *
   \***********************/

@@ -28,6 +28,8 @@ enum ComponentContext {
   endDefaultNames  = 'End Default Names',
   beginNames   = 'Begin Names',
   endNames = 'End Names',
+  beginSize = 'Begin Size',
+  endSize = 'End Size',
 };
 
 
@@ -85,28 +87,33 @@ export class ArrayService {
     contextComponent.set(ComponentContext.shouldCompare,  data.ShouldCompare);
 
       //Populating the initial state of the array BEFORE the JavaScript Operation is preformed.
-    let componentTables = new Array();
-    let componentName =  new Array();
+    let beginTables = new Array();
+    let beginDefaultsName =  new Array();
+    let beginNames =  new Array();
 
     if(data.Begin.DefaultNames.length > 0){
 
       data.Begin.DefaultNames.forEach( (value,index,array) =>{
-        componentTables.push( this.tables.get(value) );
-        componentName.push(value);
+        beginTables.push( this.tables.get(value) );
+        beginDefaultsName.push(value);
+        beginNames.push("");
       });
 
     }else{
       //TODO: Throw error if array is empty.
     }
 
-    contextComponent.set(ComponentContext.beginTables,  componentTables );
+    contextComponent.set(ComponentContext.beginTables,  beginTables );
     contextComponent.set(ComponentContext.endTables, []);
 
-    contextComponent.set(ComponentContext.beginDefaultNames, componentName);
+    contextComponent.set(ComponentContext.beginDefaultNames, beginDefaultsName);
     contextComponent.set(ComponentContext.endDefaultNames, []);
 
-    contextComponent.set(ComponentContext.beginNames, []);
+    contextComponent.set(ComponentContext.beginNames, beginNames);
     contextComponent.set(ComponentContext.endNames, []);
+
+    contextComponent.set(ComponentContext.beginSize,  beginTables.length );
+    contextComponent.set(ComponentContext.endSize,  0 );
 
     return contextComponent;
 

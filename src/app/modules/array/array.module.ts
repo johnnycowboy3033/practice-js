@@ -40,9 +40,13 @@ export class ArrayModule {
   };
 
 
-  findIndexToNameTable(index:number){
+  findIndexToNameTable(index:number, useDefault:boolean){
     let nameTable = '';
-    nameTable = this.tableNameForm[ index];
+    nameTable = this.tableNameForm[ index ];
+
+    if(!useDefault){
+
+    }
     return nameTable;
   };
 

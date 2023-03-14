@@ -9,7 +9,7 @@
       <div class="row align-items-start">
         <div *ngFor="let elementColumn of initArray; index as j"  class="col">
 
-          <h3>{{ findIndexToNameTable(j) }}
+          <h3>{{ findIndexToNameTable(j, false) }}
           </h3>
           <table>
             <thead>
@@ -28,7 +28,7 @@
                 {{element }}
               </td>
               <td class="block-action" >
-                <button type="button" class="button-element btn btn-primary" (click)="removeElement(i, findIndexToNameTable(j) )">Remove</button>
+                <button type="button" class="button-element btn btn-primary" (click)="removeElement(i, findIndexToNameTable(j, true) )">Remove</button>
               </td>
 
             </tr>
