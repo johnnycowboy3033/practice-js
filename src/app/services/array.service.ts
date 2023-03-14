@@ -1,36 +1,9 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
 
-enum ArrayNames {
-  OrderInteger = 'Order Integer',
-  Fruits = 'Fruits',
-  UniqueInteger = 'Unique Integer',
-  Peoples = 'Peoples',
-};
-
-enum ComponentNames {
-  Concatenate = 'Concatenate', CopyWithin = 'Copy Within', Entries = 'Entries',
-  Every = 'Every', Fill = 'Fill', Filter = 'Filter', Find = 'Find',
-  FindIndex = 'Find Index', ForEach = 'For Each', From = 'From', Includes ='Includes',
-  IndexOf = 'Index Of', IsArray = 'IsArray', Join ='Join', Keys = 'Keys',
-  LastIndexOf = 'Last Index Of', Map = 'Map', Pop ='Pop', Prototype= 'Prototype',
-  Push = 'Push', Reduce = 'Reduce', ReduceRight ='Reduce Right', Reverse = 'Reverse',
-  Shift = 'Shift', Slice = 'Slice', Some = 'Some', Sort ='Sort', Splice = 'Splice',
-  ToString ='To String', Unshift = 'Unshift', ValueOf =  'Value Of',
-
-};
-
-enum ComponentContext {
-  shouldCompare = 'Should Compare',
-  beginTables = 'Begin Tables',
-  endTables = 'End Tables',
-  beginDefaultNames = 'Begin Default Names',
-  endDefaultNames  = 'End Default Names',
-  beginNames   = 'Begin Names',
-  endNames = 'End Names',
-  beginSize = 'Begin Size',
-  endSize = 'End Size',
-};
+import { ArrayNames } from '../enumerates/array/array-names'
+import { ComponentNames } from '../enumerates/array/component-names'
+import { ComponentContext } from '../enumerates/array/component-context'
 
 
 @Injectable({
