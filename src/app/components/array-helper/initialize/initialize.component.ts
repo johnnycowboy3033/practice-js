@@ -62,14 +62,34 @@ export class InitializeComponent extends ArrayModule implements OnInit  {
   });
 
 
-  addElementEnd(){
+  removeElement(index:number,tableName:string){
 
+    // console.log('Index to be removed is ' + index + ' from ' + tableName + ' table');
+
+    //EXAMPLE: Take the table name of "Order Integer" to convert to the row index of 0 of
+    //Multidimensional Array
+    let tableIndex = this.findNameToIndexTable( tableName, true, true );
+
+    //This temporary array to store with the array without the removed element
+    let removeArray: string[] = [];
+
+    if( tableIndex != -1){
+
+      removeArray = this.arrayService.removeElement(tableIndex,this.initArray[ tableIndex ]);
+      this.arrayService.clone(removeArray ,this.initArray[ tableIndex ]);
+
+      //Saving changes
+      //this.saveInitMap();
+
+    }else{
+      console.log("ERROR: Can not find the array in Multidimensional Array InitArray");
+    }
+  };
+
+  addElementEnd(){
   };
 
   selectArray(){
-
   };
-
-
 
 }

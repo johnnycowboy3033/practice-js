@@ -47,6 +47,36 @@ export class ArrayModule {
     return this.allArrayNames;
   }
 
+  findNameToIndexTable(name:string, useDefault:boolean, isBegin:boolean){
+
+    let tempIndex = -1;
+    let table = new Array();
+
+    if(useDefault){
+      if(isBegin){
+        this.arrayService.clone(this.beginDefaultNames, table);
+      }else{
+        this.arrayService.clone(this.endDefaultNames, table);
+      }
+    }else{
+      if(isBegin){
+        this.arrayService.clone(this.beginNames, table);
+      }else{
+        this.arrayService.clone(this.endNames, table);
+      }
+    }
+
+    table.forEach((value,index,array)=>{
+
+      if( value == name ){
+        tempIndex = index;
+      };
+    });
+
+    return tempIndex;
+
+  };
+
 
   findIndexToNameTable(index:number, useDefault:boolean, isBegin:boolean){
     let nameTable = '';
@@ -66,9 +96,6 @@ export class ArrayModule {
 
     }
     return nameTable;
-  };
-
-  removeElement(index:number,tableName:string){
   };
 
 }

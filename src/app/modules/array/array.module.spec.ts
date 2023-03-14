@@ -59,8 +59,21 @@ describe('ArrayModule', () => {
     expect( module.getAllArrayNames()[3]).toEqual( ArrayNames.Peoples.replaceAll(' ','') );
   });
 
+
   /***************************\
-   * Find Index To Name Table *
+  * Find Name To Index Table  *
+  \***************************/
+
+  it(`(Find Name To Index Table) should be zero be the first element in the "beginDefaultNames" `, () => {
+
+    let index = module.findNameToIndexTable('0 Begin Default', true, true);
+
+    expect( index ).toEqual(0 );
+
+  });
+
+  /***************************\
+  * Find Index To Name Table  *
   \***************************/
 
   it(`(Find Index To Name Table) should be "Fruits" for the table name`, () => {
