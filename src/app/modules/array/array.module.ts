@@ -26,6 +26,9 @@ export class ArrayModule {
   beginDefaultNames: string[] = []; //The keys for table displayed in the Array Elements part of the form
   beginNames: string[] = []; //If you want to change the name of the table.
 
+  endDefaultNames: string[] = []; //The keys for table displayed in the Array Elements part of the form
+  endNames: string[] = []; //If you want to change the name of the table.
+
   /********************************************************************\
    * New  Arrays                                                       *
    * The tables/arrays AFTER JavaScript Operations are preformed       *
@@ -45,11 +48,21 @@ export class ArrayModule {
   }
 
 
-  findIndexToNameTable(index:number, useDefault:boolean){
+  findIndexToNameTable(index:number, useDefault:boolean, isBegin:boolean){
     let nameTable = '';
-    nameTable = this.beginDefaultNames[ index ];
 
-    if(!useDefault){
+    if(useDefault){
+      if(isBegin){
+        nameTable = this.beginDefaultNames[ index ];
+      }else{
+        nameTable = this.endDefaultNames[ index ];
+      }
+    }else{
+      if(isBegin){
+        nameTable = this.beginNames[ index ];
+      }else{
+        nameTable = this.endNames[ index ];
+      }
 
     }
     return nameTable;
