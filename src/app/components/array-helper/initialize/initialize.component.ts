@@ -31,11 +31,15 @@ export class InitializeComponent extends ArrayModule implements OnInit  {
           this.initArray.push(value);
         });
 
-        let tableName : string[] = componentMap.get(arrayService.getComponentContext().beginDefaultNames);
-        tableName.forEach( (value,index,array)=>{
-          this.tableNameForm.push(value);
+        let beginDefaultNames : string[] = componentMap.get(arrayService.getComponentContext().beginDefaultNames);
+        beginDefaultNames.forEach( (value,index,array)=>{
+          this.beginDefaultNames.push(value);
         });
 
+        let beginNames : string[] = componentMap.get(arrayService.getComponentContext().beginNames);
+        beginNames.forEach( (value,index,array)=>{
+          this.beginNames.push(value);
+        });
 
       };
 

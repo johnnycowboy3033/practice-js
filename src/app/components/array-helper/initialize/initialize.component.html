@@ -44,7 +44,7 @@
             <div  class="ctrl-row --array-choose form-element">
               <label for="choose-new" class="ctrl-label" >Choose Table</label>
               <select name="choose-new" id="choose-new" class="ctrl" formControlName="choose">
-                <option *ngFor="let choose of tableNameForm" class="option-choose-add" [ngValue]="choose">{{choose}}</option>
+                <option *ngFor="let choose of beginDefaultNames" class="option-choose-add" [ngValue]="choose">{{choose}}</option>
               </select>
             </div>
 
@@ -67,7 +67,7 @@
             <div  class="ctrl-row --array-choose form-element">
               <label for="choose-name" class="ctrl-label" >Choose Table</label>
               <select name="choose-name" id="choose-name" class="ctrl" formControlName="choose">
-                <option *ngFor="let choose of tableNameForm" class="option-choose-select" [ngValue]="choose">{{choose}}</option>
+                <option *ngFor="let choose of beginDefaultNames" class="option-choose-select" [ngValue]="choose">{{choose}}</option>
               </select>
             </div>
 

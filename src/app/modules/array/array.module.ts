@@ -23,7 +23,8 @@ export class ArrayModule {
   \********************************************************************/
   initArray: string[][] = [];
 
-  tableNameForm: string[] = []; //The keys for table displayed in the Array Elements part of the form
+  beginDefaultNames: string[] = []; //The keys for table displayed in the Array Elements part of the form
+  beginNames: string[] = []; //If you want to change the name of the table.
 
   /********************************************************************\
    * New  Arrays                                                       *
@@ -39,10 +40,14 @@ export class ArrayModule {
 
   };
 
+  getAllArrayNames(){
+    return this.allArrayNames;
+  }
+
 
   findIndexToNameTable(index:number, useDefault:boolean){
     let nameTable = '';
-    nameTable = this.tableNameForm[ index ];
+    nameTable = this.beginDefaultNames[ index ];
 
     if(!useDefault){
 
