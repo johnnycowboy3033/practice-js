@@ -86,8 +86,8 @@ describe('ArrayService', () => {
 
     let table = contextComponent.get(service.getComponentContext().beginTables);
 
-    console.log("Table: " + table[0]);
-    console.log("First Element in the array: " + table[0][0]);
+    // console.log("Table: " + table[0]);
+    // console.log("First Element in the array: " + table[0][0]);
 
     expect( table[0][0] ).toEqual("Banana");
 
